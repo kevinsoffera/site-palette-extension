@@ -4,4 +4,22 @@ body {
 
 h1 {
 	color: #27ae60;
+	text-align: center;
+}
+
+.flex-container {
+	width: 100%;
+	overflow: auto;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.flex-item {
+	border: 2px solid black;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
 }
