@@ -1,4 +1,6 @@
-let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "purple", "pink"]
+let colors = ["#8B0000", "red", "darkorange", 
+"orange", "gold", "yellow", "greenyellow", "green", 
+"darkgreen", "blue", "darkblue", "indigo", "purple", "pink"]
 const list = document.getElementById("list")
 
 
@@ -8,7 +10,6 @@ for (let i = 0; i < colors.length; i++) {
         <div class="flex-item" style="background:${colors[i]}">
             ${colors[i]}
         </div>
-
     `
     list.innerHTML = listItems
 
