@@ -11,9 +11,18 @@ for (let i = 0; i < colors.length; i++) {
             ${colors[i]}
         </div>
     `
-    list.innerHTML = listItems
-
+    
 }
+list.innerHTML = listItems
+
+// $.ajax({
+//     url: "https://stackoverflow.com.css",
+//     dataType: "text",
+//     success: function(cssText) {
+//         // cssText will be a string containing the text of the file
+//     }
+// });
+
 
 /* 
 Add functionality to sort colors
