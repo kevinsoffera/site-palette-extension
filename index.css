@@ -5,6 +5,7 @@ html {
 
 body {
 	background-color: antiquewhite;
+	min-width: 400px;
 }
 
 h1 {
