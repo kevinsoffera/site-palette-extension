@@ -15,7 +15,6 @@ urlBtn.addEventListener("click", function(){
 })
 
 
-
 let listItems = ""
 for (let i = 0; i < colors.length; i++) {
     listItems += `
@@ -27,15 +26,6 @@ for (let i = 0; i < colors.length; i++) {
 }
 list.innerHTML = listItems
 
-
-
-// $.ajax({
-//     url: "https://stackoverflow.com.css",
-//     dataType: "text",
-//     success: function(cssText) {
-//         // cssText will be a string containing the text of the file
-//     }
-// });
 
 
 /* 
