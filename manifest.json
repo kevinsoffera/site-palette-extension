@@ -2,10 +2,13 @@
     "manifest_version": 3,
     "version": "1.0",
     "name": "Site Palette",
+
     "description": "Displays the colors a site uses.",
+    "homepage_url": "https://github.com/kevinsoffera/site-palette-extension",
     "action": {
         "default_popup": "index.html",
-        "default_icon": "icon.png"
+        "default_icon": "icons/icon-32.png",
+        "default_title": "Site Palette"
     },
     "permissions": [
         "tabs"

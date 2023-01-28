@@ -1,6 +1,5 @@
-let colors = ["#8B0000", "red", "darkorange", 
-"orange", "gold", "yellow", "greenyellow", "green", 
-"darkgreen", "blue", "darkblue", "indigo", "purple", "pink"]
+let colors = ["#8B0000", "red", "darkorange", "orange", "gold", "yellow", "greenyellow", "green", 
+    "darkgreen", "blue", "darkblue", "indigo", "purple", "pink"]
 
 const list = document.getElementById("list")
 const urlBtn = document.getElementById("url-btn")
@@ -28,7 +27,6 @@ function renderColors() {
                 ${colors[i]}
             </div>
         `
-        
     }
     list.innerHTML = listItems
 }
@@ -41,12 +39,6 @@ function scrape() {
         });
     });
 }
-
-function GetCurrentDocument() {
-    return window.document;
-}
-
-
 
 
 
