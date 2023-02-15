@@ -1,16 +1,31 @@
 {
-    "manifest_version": 3,
-    "version": "1.0",
-    "name": "Site Palette",
+    "manifest_version": 2,
 
+    "name": "Site Palette",
+    "version": "1.0",
     "description": "Displays the colors a site uses.",
+    "author" : "@kevinsoffera",
     "homepage_url": "https://github.com/kevinsoffera/site-palette-extension",
-    "action": {
-        "default_popup": "index.html",
+    "browser_action": {
+        "default_popup": "popup.html",
         "default_icon": "icons/icon-32.png",
         "default_title": "Site Palette"
     },
+
     "permissions": [
-        "tabs"
+        "tabs",
+        "http://*/*",
+		"https://*/*"
+    ],
+
+    "background": {
+        "scripts": ["popup.js"]
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["payload.js"]
+        }
     ]
 }

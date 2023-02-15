@@ -1,23 +1,11 @@
 let colors = ["#8B0000", "red", "darkorange", "orange", "gold", "yellow", "greenyellow", "green", 
     "darkgreen", "blue", "darkblue", "indigo", "purple", "pink"]
 
-const list = document.getElementById("list")
-const urlBtn = document.getElementById("url-btn")
-const urlCSS = document.getElementById('cssSheet')
-let url = document.getElementById("url")
-let urlString = ""
+let list = document.getElementById("list")
 
-
-urlBtn.addEventListener("click", function(){
-    browser.tabs.query({active: true, currentWindow: true}, function(tabs){
-        urlString = tabs[0].url
-        url.innerHTML = urlString
-    })
-    renderColors()
-    GetCurrentDocument()
-    scrape()
-
-})
+/*
+Display Colors
+*/
 
 function renderColors() {
     let listItems = ""
@@ -31,6 +19,21 @@ function renderColors() {
     list.innerHTML = listItems
 }
 
+
+
+window.addEventListener('load', function (evt) {
+	browser.extension.getBackgroundPage().browser.tabs.executeScript(null, {
+		file: 'payload.js'
+	});;
+});
+
+// renderColors()
+
+browser.runtime.onMessage.addListener(function (message) {
+    console.log(message)
+	// colors = message;
+    renderColors()
+});
 
 
 
