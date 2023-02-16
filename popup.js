@@ -7,7 +7,8 @@ let list = document.getElementById("list")
 Display Colors
 */
 
-function renderColors() {
+function renderColors(siteColors) {
+    let colors = siteColors
     let listItems = ""
     for (let i = 0; i < colors.length; i++) {
         listItems += `
@@ -16,7 +17,7 @@ function renderColors() {
             </div>
         `
     }
-    list.innerHTML = listItems
+    document.getElementById("list").innerHTML = listItems
 }
 
 
@@ -32,7 +33,7 @@ window.addEventListener('load', function (evt) {
 browser.runtime.onMessage.addListener(function (message) {
     console.log(message)
 	// colors = message;
-    renderColors()
+    renderColors(message)
 });
 
 
