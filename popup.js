@@ -1,7 +1,4 @@
-let colors = ["#8B0000", "red", "darkorange", "orange", "gold", "yellow", "greenyellow", "green", 
-    "darkgreen", "blue", "darkblue", "indigo", "purple", "pink"]
-
-let list = document.getElementById("list")
+let myList = document.getElementById("list")
 
 /*
 Display Colors
@@ -12,7 +9,7 @@ function renderColors(siteColors) {
     let listItems = ""
     for (let i = 0; i < colors.length; i++) {
         listItems += `
-            <div class="flex-item" style="background:${colors[i]}">
+            <div class="flex-item tooltiptext" style="background:${colors[i]};tooltip:${colors[i]}">
                 ${colors[i]}
             </div>
         `
@@ -21,15 +18,14 @@ function renderColors(siteColors) {
 }
 
 
-
+// Inject content script on page load
 window.addEventListener('load', function (evt) {
 	browser.extension.getBackgroundPage().browser.tabs.executeScript(null, {
 		file: 'payload.js'
 	});;
 });
 
-// renderColors()
-
+// Receive message 
 browser.runtime.onMessage.addListener(function (message) {
     console.log(message)
 	// colors = message;
