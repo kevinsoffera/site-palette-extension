@@ -1,4 +1,3 @@
-// browser.runtime.sendMessage(document.title)
 browser.runtime.sendMessage(getAllColors())
 
 function getAllColors() {
