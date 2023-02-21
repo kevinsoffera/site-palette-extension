@@ -1,5 +1,6 @@
 browser.runtime.sendMessage(getAllColors())
 
+// scrape via https://stackoverflow.com/questions/23842320/get-all-style-attribute-colors
 function getAllColors() {
     // regex via http://stackoverflow.com/a/7543829/149636
     let rgbRegex = /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/;
