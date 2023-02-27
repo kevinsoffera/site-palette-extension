@@ -10,11 +10,10 @@ window.addEventListener('load', function (evt) {
 
 // Receive colors and render on popup
 browser.runtime.onMessage.addListener(function (message) {
-    console.log(message)
+    // console.log(message[0])
     renderColors(message)
-    console.log("rendered")
-    addTooltip()
-    console.log("tooltips")
+    addText()
+    textContrast()
 });
 
 
@@ -33,18 +32,16 @@ function renderColors(siteColors) {
     }
     document.getElementById("list").innerHTML = listItems
     myList = document.getElementById("list")
-    // console.log(myList)
+
 }
 
-
-function addTooltip() {
-
-    // selecting the elements for which we want to add a tooltip
-    var target = document.getElementsByClassName("swatch");
-    var colorText = document.getElementsByClassName("color-text");
-    console.log(colorText)
+// Display text on mouseover
+function addText() {
+    // selecting the elements to add a tooltip
+    let target = document.getElementsByClassName("swatch");
+    let colorText = document.getElementsByClassName("color-text");
     
-    
+    // add mouseover to all swatches
     for (let x = 0; x < target.length; x++) {
         // change display to 'block' on mouseover
         target[x].addEventListener('mouseover', () => {colorText[x].style.display = 'block';}, false);
@@ -53,3 +50,36 @@ function addTooltip() {
         target[x].addEventListener('mouseleave', () => {colorText[x].style.display = 'none';}, false);
     }
 }
+
+
+function textContrast() {
+    let colorText = document.getElementsByClassName("color-text")
+    
+    for (let x = 0; x < colorText.length; x++) {
+        // split colors to grab rgb values
+        let str = colorText[x].innerHTML
+        let rgbString = str.slice(str.indexOf('(')+1, str.indexOf(')')).split(', ')
+
+        let red = parseInt(rgbString[0])
+        let green = parseInt(rgbString[1])
+        let blue = parseInt(rgbString[2])
+
+        /* calculates perceived lightness using the sRGB Luma method 
+        Luma = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255 */
+        const redCalc = (red * 0.2126)
+        const greenCalc = (green * 0.7152)
+        const blueCalc = (blue * 0.0722)
+
+        const rgbSum = (redCalc + blueCalc + greenCalc)
+
+        const perceivedLight = (rgbSum / 255)
+
+        if (perceivedLight < 0.5) {
+            colorText[x].style.color = "white"
+        }
+    }
+}
+
+// function brightness(red, green, blue) {
+
+// }
