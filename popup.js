@@ -77,8 +77,11 @@ function textContrast() {
 }
 
 function brightness(red, green, blue) {
-    /* calculates perceived lightness using the sRGB Luma method 
-    Luma = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255 */
+    /* 
+    calculates perceived lightness using the sRGB Luma method 
+    Luma = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255 
+    formula from https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+    */
     const redCalc = (red * 0.2126)
     const greenCalc = (green * 0.7152)
     const blueCalc = (blue * 0.0722)
