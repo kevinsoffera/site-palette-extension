@@ -17,8 +17,9 @@ browser.runtime.onMessage.addListener(function (message) {
 });
 
 
-// Display Colors on popup
+
 function renderColors(siteColors) {
+    // Display Colors on popup window
     let colors = siteColors
     let listItems = ""
     for (let i = 0; i < colors.length; i++) {
@@ -35,8 +36,10 @@ function renderColors(siteColors) {
 
 }
 
-// Display text on mouseover
+
 function addText() {
+    // Display color text on mouseover (r, g, b) or (r, g, b, a)
+
     // selecting the elements to add a tooltip
     let target = document.getElementsByClassName("swatch");
     let colorText = document.getElementsByClassName("color-text");
@@ -53,6 +56,7 @@ function addText() {
 
 
 function textContrast() {
+    // add
     let colorText = document.getElementsByClassName("color-text")
     
     for (let x = 0; x < colorText.length; x++) {
@@ -64,15 +68,7 @@ function textContrast() {
         let green = parseInt(rgbString[1])
         let blue = parseInt(rgbString[2])
 
-        /* calculates perceived lightness using the sRGB Luma method 
-        Luma = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255 */
-        const redCalc = (red * 0.2126)
-        const greenCalc = (green * 0.7152)
-        const blueCalc = (blue * 0.0722)
-
-        const rgbSum = (redCalc + blueCalc + greenCalc)
-
-        const perceivedLight = (rgbSum / 255)
+        const perceivedLight = brightness(red, green, blue)
 
         if (perceivedLight < 0.5) {
             colorText[x].style.color = "white"
@@ -80,6 +76,16 @@ function textContrast() {
     }
 }
 
-// function brightness(red, green, blue) {
+function brightness(red, green, blue) {
+    /* calculates perceived lightness using the sRGB Luma method 
+    Luma = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255 */
+    const redCalc = (red * 0.2126)
+    const greenCalc = (green * 0.7152)
+    const blueCalc = (blue * 0.0722)
 
-// }
+    const rgbSum = (redCalc + blueCalc + greenCalc)
+
+    const lightness = rgbSum / 255
+
+    return lightness
+}
