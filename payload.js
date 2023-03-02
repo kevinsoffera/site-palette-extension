@@ -33,6 +33,10 @@ function getAllColors() {
 
             if(allColors.indexOf(rgbVal.input) == -1) { // avoid duplicate entries
                 allColors.push(rgbVal.input);
+                // maximum of 100 for performance reasons
+                if (allColors.length == 100) {
+                    return allColors
+                }
             }
 
         }
