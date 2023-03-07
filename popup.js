@@ -10,7 +10,6 @@ window.addEventListener('load', function (evt) {
 
 // Receive colors and render on popup
 browser.runtime.onMessage.addListener(function (message) {
-    // console.log(message[0])
     renderColors(message)
     addText()
     textContrast()
@@ -47,16 +46,26 @@ function addText() {
     // add mouseover to all swatches
     for (let x = 0; x < target.length; x++) {
         // change display to 'block' on mouseover
-        target[x].addEventListener('mouseover', () => {colorText[x].style.display = 'block';}, false);
-        
+        target[x].addEventListener('mouseover', () => {colorText[x].style.display = 'block';}, false); 
         // change display to 'none' on mouseleave
         target[x].addEventListener('mouseleave', () => {colorText[x].style.display = 'none';}, false);
+
+        // copy to clipboard on click, update text to "Copied!"
+        target[x].addEventListener('click', () => {
+            rgb = colorText[x].innerText
+            navigator.clipboard.writeText(colorText[x].innerText)
+            colorText[x].innerText= "Copied!"
+            // set text back to original color
+            setTimeout(() => {
+                colorText[x].innerText = rgb 
+            }, "2000")
+        })
     }
 }
 
 
 function textContrast() {
-    // add
+    // add contrast for dark colors
     let colorText = document.getElementsByClassName("color-text")
     
     for (let x = 0; x < colorText.length; x++) {
@@ -92,3 +101,8 @@ function brightness(red, green, blue) {
 
     return lightness
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
