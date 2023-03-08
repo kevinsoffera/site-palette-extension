@@ -16,6 +16,12 @@ h1 {
 	font-size: 32px;
 }
 
+.contact {
+	font-size: 10px;
+	text-align: right;
+	margin-right: 20px;
+}
+
 .flex-container {
 	width: 100%;
 	overflow: auto;
@@ -31,8 +37,8 @@ h1 {
 .swatch {
 	border: 2.5px solid black;
 	margin: 10px;
-	width: 50px;
-	height: 50px;
+	width: 55px;
+	height: 55px;
 	font-size: x-small;
 	text-align: center;
 }
