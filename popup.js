@@ -23,11 +23,11 @@ function renderColors(siteColors) {
     let listItems = ""
     for (let i = 0; i < colors.length; i++) {
         listItems += `
-            <div class="swatch" style="background-color:${colors[i]}">
+            <button class="swatch" style="background-color:${colors[i]}">
                 <span class="color-text">
                     ${colors[i]}
                 </span>
-            </div>
+            </button>
         `
     }
     document.getElementById("list").innerHTML = listItems
@@ -58,7 +58,7 @@ function addText() {
             // set text back to original color
             setTimeout(() => {
                 colorText[x].innerText = rgb 
-            }, "2000")
+            }, "1150")
         })
     }
 }
