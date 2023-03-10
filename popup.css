@@ -1,20 +1,58 @@
 html {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	scrollbar-width: thin;
 }
 
 body {
-	background-color: antiquewhite;
 	width: 400px;
-	height: 350px;
+	max-height: 350px;
 	overflow-x: hidden;
+	top: 0;
+	left: 0;
+	margin: 0;
+	border: 0;
+	padding: 0;
 }
 
 h1 {
-	color: #27ae60;
+	color: #000000;
 	text-align: center;
 	font-size: 32px;
 }
+
+.wrap {
+	background-image: url("img/background.jpg");
+	background-color: rgba(255, 255, 255, 0.6);
+	background-blend-mode: lighten;
+
+	border: 1px solid black;
+}
+
+/* body:before {
+	content: " ";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 200%;
+	opacity: 0.3;
+	background-image: url("img/background.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+} */
+
+/* .img-bg {
+	opacity: 0.4;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	background-attachment: fixed;
+	z-index: -1;
+} */
 
 .contact {
 	font-size: 10px;
@@ -36,10 +74,10 @@ h1 {
 
 .swatch {
 	border: 2.5px solid black;
-	margin: 10px;
-	width: 55px;
-	height: 55px;
-	font-size: x-small;
+	margin: 5px;
+	width: 50px;
+	height: 50px;
+	font-size: 10px;
 	text-align: center;
 }
 
